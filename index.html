@@ -1,0 +1,155 @@
+﻿<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>inazure.net - is ip or hostname in azure</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <base href="/" />
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="Content/styles.css" rel="stylesheet" />
+       
+    <!-- ================== END BASE CSS STYLE ================== -->
+</head>
+<body ng-app="SJKP.InAzure">
+    <!-- begin #header -->
+    <div id="header" class="header navbar navbar-default navbar-fixed-top">
+        <!-- begin container -->
+        <div class="container">
+            <!-- begin navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <span class="navbar-logo"></span>
+                    <span class="brand-text">
+                      inazure.net
+                    </span>
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- begin #header-navbar -->
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav navbar-right">                   
+                    <!--<li><a href="javascript:;">Create Account</a></li>
+                    <li><a href="javascript:;">Sign In</a></li>-->
+                </ul>
+            </div>
+            <!-- end #header-navbar -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #header -->
+    <!-- begin search-banner -->
+    <div id="wrap">
+        <div class="search-banner has-bg" ng-controller="searchController">
+            <!-- begin bg-cover -->
+            <div class="bg-cover">
+                <img src="content/city-night.jpg" alt="">
+            </div>
+            <!-- end bg-cover -->
+            <!-- begin container -->
+            <div class="container">
+                <h1>Is IP or Hostname in Azure?</h1>
+                <form ng-submit="search()">
+                    <div class="input-group m-b-20">
+
+                        <input type="text" class="form-control input-lg" placeholder="type ip or hostname, e.g. schdo.com" ng-model="searchTerm">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-lg"><i class="fa fa-search" ng-enabled="searchTerm.length > 0"></i></button>
+                        </span>
+
+                    </div>
+                </form>
+                <h5>Lastest searches</h5>
+                <ul class="popular-tags">
+                    <li ng-repeat="item in latestSearchTerms track by $index"><a href="/search/{{item}}"><i class="fa fa-circle text-danger"></i>{{item}}</a></li>
+                </ul>
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end search-banner -->
+        <!-- begin content -->
+        <div class="content">
+            <!-- begin container -->
+            <div class="container">
+                <div class="loading-indicator" ng-if="isLoading">
+                    <i class="fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom"></i>
+                    <div>Just a moment</div>
+                </div>
+                <div ng-view="" ng-if="!isLoading"></div>
+
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end content -->
+        <!-- begin #footer -->
+        <div id="footer" class="footer">
+            <!-- begin container -->
+            <div class="container">
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-4 -->
+                    <div class="col-md-4">
+                        <!-- begin section-container -->
+                        <div class="section-container">
+                            <h4>About inazure.net</h4>
+                            <p>
+                                inazure.net is a playground where I release various Azure tools. Some might be incredible useful, others are for very specific use cases that might not be attractive to a wider audience. 
+                            </p>
+                        </div>
+                        <!-- end section-container -->
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 -->
+                    <div class="col-md-4">
+                        <!-- begin section-container -->
+                        <div class="section-container" ng-controller="blogController">
+                            <h4>Latest Post</h4>
+                            <ul class="latest-post">
+                                <li ng-repeat="post in posts">
+                                    <h4 class="title"><a ng-href="{{post.permalink}}">{{post.title}}</a></h4>
+                                    <p class="time">{{post.date}}</p>                               
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end section-container -->
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 -->
+                    <div class="col-md-4">
+                        <!-- begin section-container -->
+                        <div class="section-container">
+
+                        </div>
+                        <!-- end section-container -->
+                    </div>
+                    <!-- end col-4 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #footer -->
+
+        <div id="footer-copyright" class="footer-copyright">
+            <div class="container">
+                © 2016 Simon J.K. Pedersen
+            </div>
+        </div>
+    </div>
+    
+    <script src="Scripts/angular.min.js"></script> 
+    <script src="Scripts/angular-route.min.js"></script>              
+    <script src="scripts/app.js"></script>   
+
+</body>
+</html>

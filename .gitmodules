@@ -1,0 +1,3 @@
+[submodule "Letsencrypt.AzureUsage"]
+	path = Letsencrypt.AzureUsage
+	url = https://github.com/sjkp/Letsencrypt.AzureUsage.git
