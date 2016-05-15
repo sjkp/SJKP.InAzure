@@ -17,6 +17,10 @@
         [Route("")]
         public async Task<IHttpActionResult> Post(SearchInputModel model)
         {
+            var response = new SearchResult()
+            {
+                MatchedSearchTerm = model.Term,
+            }; 
             try {
                 if (!ModelState.IsValid)
                 {
@@ -24,24 +28,31 @@
                 }
                 history.Insert(0, model.Term);
                 history = history.Take(5).ToList();
-                var res = Functions.GetAzureInformation(model.Term);
-                if (res == null)
-                    return Ok(new SearchResult()
-                    {                        
-                        MatchedSearchTerm = model.Term,                     
-                    });
-
-                return Ok(new SearchResult()
+                var res = await Functions.GetAzureInformation(model.Term);
+                if (res != null)
                 {
-                    Found = true,
-                    MatchedSearchTerm = model.Term,
-                    Region = res.Region
-                });
+                    response.Found = true;
+                    response.Properties.Add("Region", res.Region);
+                    response.ServiceType = "Azure";
+                }
+                else
+                {
+                    res = await Functions.GetOffice365Information(model.Term);
+                    if (res != null)
+                    {
+                        response.Found = true;
+                        response.ServiceType = "Office 365";
+                        response.Properties.Add("Service", res.Office365);
+                    }
+                }
+                
+                
             }
             catch(Exception e)
             {
                 throw;
             }
+            return Ok(response);
         }
 
         [HttpGet]

@@ -25,7 +25,7 @@ namespace SJKP.InAzure.Web
 
             app.UseWebApi(httpConfiguration);
 
-
+            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             // Configure Web API Routes:
             // - Enable Attribute Mapping
             // - Enable Default routes at /api.

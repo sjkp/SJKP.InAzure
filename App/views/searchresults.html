@@ -1,13 +1,17 @@
 ﻿<div class="row">
     <div class="col-lg-offset-2 col-lg-8">
         <h2 ng-show="data.Found">
-            <i class="fa fa-check fa-2x text-success" aria-hidden="true"></i> {{data.MatchedSearchTerm}} found in Azure
+            <i class="fa fa-check fa-2x text-success" aria-hidden="true"></i> {{data.MatchedSearchTerm}} found in {{data.ServiceType}}
         </h2>
         <h2 ng-show="!data.Found">
-            <i class="fa fa-times fa-2x text-danger" aria-hidden="true"></i> {{data.MatchedSearchTerm}} not found in Azure
+            <i class="fa fa-times fa-2x text-danger" aria-hidden="true"></i> {{data.MatchedSearchTerm}} not found in Azure or Office 365
         </h2>
         <p ng-show="data.Found">
-           Region: {{data.Region}}
+            <table>
+                <tr ng-repeat="(key,val) in data.Properties">
+                    <td>{{key}}: </td><td>{{val}}</td>
+                </tr>
+            </table>
         </p>
     </div>
 </div>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SJKP.InAzure.Web", "SJKP.In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Letsencrypt.AzureUsage", "Letsencrypt.AzureUsage\Letsencrypt.AzureUsage\Letsencrypt.AzureUsage.csproj", "{09AF1B36-BBD0-4FE1-9CF0-A53C0AEC7A89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Letsencrypt.AzureUsage.Test", "Letsencrypt.AzureUsage\Letsencrypt.AzureUsage\Letsencrypt.AzureUsage.Test\Letsencrypt.AzureUsage.Test.csproj", "{12B7638A-DB84-45CB-A086-0D0C1C075061}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{09AF1B36-BBD0-4FE1-9CF0-A53C0AEC7A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09AF1B36-BBD0-4FE1-9CF0-A53C0AEC7A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09AF1B36-BBD0-4FE1-9CF0-A53C0AEC7A89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12B7638A-DB84-45CB-A086-0D0C1C075061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B7638A-DB84-45CB-A086-0D0C1C075061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B7638A-DB84-45CB-A086-0D0C1C075061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B7638A-DB84-45CB-A086-0D0C1C075061}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
